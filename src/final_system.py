@@ -73,6 +73,8 @@ def main():
     input_thread = threading.Thread(target=get_input, daemon=True)
     input_thread.start()
 
+    last_logged_status = None  # 前回ログ出力時の状態 ('ON' or 'OFF')
+
     while cap.isOpened():
         success, frame = cap.read()
         if not success:
@@ -145,8 +147,20 @@ def main():
             writer = csv.writer(f)
             writer.writerow([time.time(), current_ground_truth, last_ai_detected, f"{infer_sec:.3f}", f"{last_confidence:.2f}"])
 
+        # 正しいLED制御ロジック
         if led_ser:
-            led_ser.write(b'1' if last_ai_detected else b'0')
+            if last_ai_detected:
+                led_ser.write(b'1')
+                # 状態がOFF→ONに変わった瞬間、またはONの中で信頼度が大きく変わった時だけ表示
+                if last_logged_status != "ON":
+                    print(f"💡 LED ON  (conf={last_confidence:.2f})")
+                    last_logged_status = "ON"
+            else:
+                led_ser.write(b'0')
+                # 状態がON→OFFに切り替わった瞬間だけ1回表示
+                if last_logged_status != "OFF":
+                    print("⚫ LED OFF (Standing by...)")
+                    last_logged_status = "OFF"
 
         # GUI表示
         avg_infer = sum(infer_times) / len(infer_times) if infer_times else 0
