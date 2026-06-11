@@ -1,0 +1,18 @@
+# 機密情報
+secrets/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Arduino
+esp32/*/build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# テストアーカイブ
+archive/
