@@ -13,7 +13,7 @@ import serial
 from datetime import datetime
 from ultralytics import YOLO
 
-STREAM_URL = "http://192.168.100.101"
+STREAM_URL = "http://192.168.4.1"
 CUP_CLASS_ID = 41
 BOTTLE_CLASS_ID = 39
 CONF_THRESHOLD = 0.25  # 0.57 の実績を踏まえた実用的な閾値

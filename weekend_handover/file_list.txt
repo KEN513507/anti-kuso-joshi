@@ -1,0 +1,41 @@
+esp32/test_http_only/test_http_only.ino
+esp32/ap_camera/ap_camera.ino
+esp32/led_alert/led_alert.ino
+esp32/backup/xiao_sense.ino.bak
+esp32/xiao_blink/xiao_blink.ino
+
+# 2026-06-12 状況
+
+## 成功
+
+- YOLOv8n動作確認済
+- LED制御確認済
+- CSV監査ログ確認済
+- ESP32 USB認識確認済
+
+## 失敗
+
+- curl http://192.168.100.105
+  -> Connection refused
+
+- nmap
+  -> 80/tcp closed
+
+- OV2640
+  -> esp_camera_init() = 0xffffffff
+
+- RESET押下
+  -> シリアル出力なし
+
+## 判定
+
+Ubuntu正常
+Python正常
+YOLO正常
+
+問題はXIAO側
+
+候補:
+1. OV2640故障
+2. USB CDC設定問題
+3. 実行ファーム不明
