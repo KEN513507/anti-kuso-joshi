@@ -5,7 +5,7 @@
 
 - **Hardware**: XIAO ESP32S3 Sense + OV2640
 - **Compile**: FQBN `esp32:esp32:XIAO_ESP32S3:PSRAM=opi` (PSRAM必須)
-- **Network**: 
+- **Network**:
   - ESP32 (STA Mode): `192.168.100.101`
   - Ubuntu (Host): `192.168.100.106`
   - Router: YAMAHA RTX1200
@@ -27,7 +27,7 @@
 
 ## 3. 開発フェーズの遷移
 - **Phase 1: Connectivity (DONE)**: Wi-Fi接続、ストリーミング、映像保存の確立。
-- **Phase 2: Intelligence & Integration (ACTIVE)**: 
+- **Phase 2: Intelligence & Integration (ACTIVE)**:
   - YOLO推論の精度向上（cup判定）。
   - 判定結果と監査ログ（CSV）の連携。
   - 推論結果に連動したリアルタイムLED通知。

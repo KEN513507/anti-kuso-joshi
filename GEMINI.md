@@ -20,7 +20,7 @@ XIAO ESP32S3 Senseで取得した映像をUbuntuへ送信し、YOLOv8でロー�
 - **PSRAM無効ビルドは禁止。**
 
 ## System Architecture
-- **ESP32 Side**: 
+- **ESP32 Side**:
   - Camera Capture & MJPEG Streaming に専念。
 - **Ubuntu Side**:
   - OpenCVによるストリーム取得。
